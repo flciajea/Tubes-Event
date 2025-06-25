@@ -1,0 +1,43 @@
+<%- include('../partials-admin/header') %>
+<%- include('../partials-admin/navbar') %>
+
+<div class="container mt-5">
+  <h2>Tambah Kegiatan Baru</h2>
+  <form action="/admin/kegiatan/tambah" method="POST" enctype="multipart/form-data">
+    <div class="mb-3">
+      <label>Nama Kegiatan</label>
+      <input type="text" name="nama" class="form-control" required>
+    </div>
+    <div class="mb-3">
+      <label>Tanggal</label>
+      <input type="date" name="tanggal" class="form-control" required>
+    </div>
+    <div class="mb-3">
+      <label>Waktu</label>
+      <input type="time" name="waktu" class="form-control" required>
+    </div>
+    <div class="mb-3">
+      <label>Lokasi</label>
+      <input type="text" name="lokasi" class="form-control" required>
+    </div>
+    <div class="mb-3">
+      <label>Narasumber</label>
+      <input type="text" name="narasumber" class="form-control" required>
+    </div>
+    <div class="mb-3">
+      <label>Biaya Registrasi</label>
+      <input type="number" name="biayaRegistrasi" class="form-control" value="0" required>
+    </div>
+    <div class="mb-3">
+      <label>Max Peserta</label>
+      <input type="number" name="maxPeserta" class="form-control" required>
+    </div>
+    <div class="mb-3">
+      <label>Poster (optional)</label>
+      <input type="file" name="poster" class="form-control">
+    </div>
+    <button type="submit" class="btn btn-primary">Simpan Kegiatan</button>
+  </form>
+</div>
+
+<%- include('../partials-admin/footer') %>

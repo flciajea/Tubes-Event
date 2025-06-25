@@ -1,0 +1,28 @@
+<%- include('partials-user/header') %>
+
+<h1 class="mb-4">Daftar Event</h1>
+<div class="row">
+  <% kegiatans.forEach(function(event) { %>
+    <div class="col-md-4">
+      <div class="card mb-4">
+        <% if (event.poster) { %>
+          <img src="/uploads/<%= event.poster %>" class="card-img-top" alt="Poster <%= event.nama %>">
+        <% } else { %>
+          <img src="https://via.placeholder.com/400x200?text=No+Image" class="card-img-top" alt="No Poster">
+        <% } %>
+        <div class="card-body">
+          <h5 class="card-title"><%= event.nama %></h5>
+          <p class="card-text">Tanggal: <%= event.tanggal.toLocaleDateString('id-ID') %></p>
+          <p class="card-text">Waktu: <%= event.waktu %></p>
+          <p class="card-text">Lokasi: <%= event.lokasi %></p>
+          <p class="card-text">Narasumber: <%= event.narasumber %></p>
+          <p class="card-text">Biaya: Rp <%= event.biayaRegistrasi %></p>
+          <p class="card-text">Kuota: <%= event.maxPeserta %> orang</p>
+          <a href="/daftar/<%= event._id %>" class="btn btn-primary">Daftar</a>
+        </div>
+      </div>
+    </div>
+  <% }) %>
+</div>
+
+<%- include('partials-user/footer') %>

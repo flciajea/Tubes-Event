@@ -1,0 +1,20 @@
+<%- include('partials-user/header') %>
+
+<h1>Form Registrasi</h1>
+<form action="#" method="POST">
+  <div class="mb-3">
+    <label class="form-label">Nama</label>
+    <input type="text" class="form-control" name="nama" required>
+  </div>
+  <div class="mb-3">
+    <label class="form-label">Email</label>
+    <input type="email" class="form-control" name="email" required>
+  </div>
+  <div class="mb-3">
+    <label class="form-label">Password</label>
+    <input type="password" class="form-control" name="password" required>
+  </div>
+  <button type="submit" class="btn btn-primary">Daftar</button>
+</form>
+
+<%- include('partials-user/footer') %>

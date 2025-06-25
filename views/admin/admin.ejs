@@ -1,0 +1,51 @@
+<%- include('../partials-admin/header') %>
+
+<div class="container mt-4">
+  <h1 class="mb-4">Kelola Kegiatan</h1>
+
+  <a href="/admin/kegiatan/add" class="btn btn-primary mb-3">+ Tambah Kegiatan</a>
+
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th>Poster</th>
+        <th>Nama</th>
+        <th>Tanggal</th>
+        <th>Waktu</th>
+        <th>Lokasi</th>
+        <th>Narasumber</th>
+        <th>Kuota</th>
+        <th>Biaya</th>
+        <th>Aksi</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% kegiatans.forEach(function(event) { %>
+        <tr>
+          <td>
+            <% if (event.poster) { %>
+              <img src="/uploads/<%= event.poster %>" width="80" />
+            <% } else { %>
+              <span>Tidak ada</span>
+            <% } %>
+          </td>
+          <td><%= event.nama %></td>
+          <td><%= event.tanggal.toLocaleDateString('id-ID') %></td>
+          <td><%= event.waktu %></td>
+          <td><%= event.lokasi %></td>
+          <td><%= event.narasumber %></td>
+          <td><%= event.maxPeserta %></td>
+          <td>Rp <%= event.biayaRegistrasi %></td>
+          <td>
+            <a href="/admin/kegiatan/edit/<%= event._id %>" class="btn btn-sm btn-warning">Edit</a>
+            <form action="/admin/kegiatan/delete/<%= event._id %>" method="POST" style="display:inline-block;">
+              <button type="submit" class="btn btn-sm btn-danger">Hapus</button>
+            </form>
+          </td>
+        </tr>
+      <% }) %>
+    </tbody>
+  </table>
+</div>
+
+<%- include('../partials-admin/footer') %>

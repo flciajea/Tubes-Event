@@ -1,0 +1,51 @@
+<%- include('../partials-admin/header') %>
+
+<div class="container mt-5">
+  <h1 class="mb-4">Manajemen Kegiatan</h1>
+
+  <a href="/admin/kegiatan/tambah" class="btn btn-success mb-3">+ Tambah Kegiatan</a>
+
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Poster</th>
+        <th>Nama</th>
+        <th>Tanggal</th>
+        <th>Lokasi</th>
+        <th>Narasumber</th>
+        <th>Biaya</th>
+        <th>Kuota</th>
+        <th>Status</th>
+        <th>Aksi</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% kegiatans.forEach(function(item){ %>
+        <tr>
+          <td>
+            <% if (item.poster) { %>
+              <img src="/uploads/<%= item.poster %>" width="100">
+            <% } else { %>
+              <span class="text-muted">No Poster</span>
+            <% } %>
+          </td>
+          <td><%= item.nama %></td>
+          <td><%= item.tanggal.toLocaleDateString() %></td>
+          <td><%= item.lokasi %></td>
+          <td><%= item.narasumber %></td>
+          <td>Rp <%= item.biayaRegistrasi.toLocaleString() %></td>
+          <td><%= item.maxPeserta %></td>
+          <td><%= item.status %></td>
+          <td>
+            <a href="/admin/kegiatan/edit/<%= item._id %>" class="btn btn-warning btn-sm">Edit</a>
+            <form action="/admin/kegiatan/hapus/<%= item._id %>" method="POST" style="display:inline;">
+              <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('Yakin mau hapus?')">Hapus</button>
+            </form>
+          </td>
+        </tr>
+      <% }) %>
+    </tbody>
+  </table>
+</div>
+
+<%- include('../partials-admin/footer') %>

@@ -1,0 +1,17 @@
+<%- include('partials-user/header') %>
+
+<div class="container">
+  <h1 class="mb-4">History Pendaftaran Event</h1>
+  <div class="list-group">
+    <% pendaftarans.forEach(function(item) { %>
+      <a class="list-group-item list-group-item-action">
+        <strong>Event ID:</strong> <%= item.eventId %><br>
+        <strong>Nama:</strong> <%= item.nama %><br>
+        <strong>Status:</strong> <%= item.pembayaran %><br>
+      </a>
+    <% }) %>
+  </div>
+  <a href="/guest" class="btn btn-primary mt-3">Kembali ke Daftar Event</a>
+</div>
+
+<%- include('partials-user/footer') %>

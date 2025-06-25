@@ -1,0 +1,16 @@
+<nav>
+  <a href="/">Home</a>
+  <% if (session && session.user) { %>
+    <% if (session.user.role === 'admin') { %>
+      <a href="/admin/kegiatan">Dashboard Admin</a>
+    <% } else { %>
+      <a href="/guest">Daftar Event</a>
+    <% } %>
+   <% if (session.user) { %>
+      <a href="/logout">Logout</a>
+    <% } %>
+  <% } else { %>
+    <a href="/login">Login</a>
+    <a href="/register">Registrasi</a>
+  <% } %>
+</nav>

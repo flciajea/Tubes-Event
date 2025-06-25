@@ -1,0 +1,40 @@
+<%- include('partials-user/header') %>
+
+<h1>Form Pendaftaran: <%= kegiatan.nama %></h1>
+
+
+<form action="/api/pendaftarans/submit" method="POST" enctype="multipart/form-data">
+  <input type="hidden" name="eventId" value="<%= kegiatan._id %>">
+
+  <div class="mb-3">
+    <label>Nama</label>
+    <input type="text" name="nama" class="form-control" required>
+  </div>
+
+  <div class="mb-3">
+    <label>Email</label>
+    <input type="email" name="email" class="form-control" required>
+  </div>
+
+  <div class="mb-3">
+    <label>No. Telp</label>
+    <input type="text" name="noTelp" class="form-control" required>
+  </div>
+
+  <div class="mb-3">
+    <label>Metode Pembayaran</label>
+    <select name="pembayaran" class="form-control" required>
+      <option value="transfer">Transfer</option>
+      <option value="cash">qris</option>
+    </select>
+  </div>
+
+  <div class="mb-3">
+    <label>Upload Bukti Pembayaran</label>
+    <input type="file" name="buktiBayar" class="form-control">
+  </div>
+
+  <button type="submit" class="btn btn-primary">Kirim Pendaftaran</button>
+</form>
+
+<%- include('partials-user/footer') %>
